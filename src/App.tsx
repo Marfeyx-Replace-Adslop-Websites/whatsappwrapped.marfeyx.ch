@@ -1,3 +1,4 @@
+import { MarfeyxBrand } from "./brand/MarfeyxBrand";
 import { ChangeEvent, DragEvent, ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { Button, Card, Chip } from "@heroui/react";
 import { Activity, Archive, ArrowUpRight, BarChart3, CalendarDays, Check, ChevronRight, Clock3, FileArchive, FileText, FolderOpen, Image, Info, LockKeyhole, MessageCircle, MessagesSquare, Mic2, Plus, RefreshCw, ShieldCheck, Sparkles, UploadCloud, Users, Video, X, Zap } from "lucide-react";
@@ -16,7 +17,7 @@ export default function App() {
   const stats = useMemo(() => calculateWrappedStats(chats, selfAliases, new Date()), [chats, selfAliases]);
   const windowLabel = `${formatDate(stats.windowStart)} – ${formatDate(stats.windowEnd)}`;
 
-  useEffect(() => { document.title = "WhatsApp Wrapped — Your year in conversation"; }, []);
+  useEffect(() => { document.title = "WhatsApp Wrapped — Marfeyx"; }, []);
   useEffect(() => { setSelfAliases((current) => new Set([...current].filter((alias) => participants.includes(alias)))); }, [participants]);
 
   async function importFiles(selected: File[]) {
@@ -53,7 +54,7 @@ export default function App() {
 
 function Header({ hasData, isImporting, onImport }: { hasData: boolean; isImporting: boolean; onImport: () => void }) {
   return <header className="topbar">
-    <a className="brand" href="./"><span className="brand-mark"><MessageCircle size={18} fill="currentColor" /></span><span className="brand-name">wrapped<span>/locally</span></span></a>
+    <MarfeyxBrand product="WhatsApp Wrapped" />
     <div className="year-pill"><CalendarDays size={14} /><span>Rolling 365 days</span></div>
     <div className="top-actions"><span className="privacy-label"><ShieldCheck size={14} /> On-device analysis</span>{hasData && <Button variant="secondary" size="sm" isPending={isImporting} onPress={onImport}>{isImporting ? <RefreshCw className="spin" size={15} /> : <Plus size={15} />} Add exports</Button>}</div>
   </header>;
