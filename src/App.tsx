@@ -66,8 +66,8 @@ function Landing({ isDragging, isImporting, status, errors, windowLabel, onBrows
     <div className="orb orb-one" /><div className="orb orb-two" />
     <section className="hero-copy">
       <Chip color="success" variant="soft" size="sm"><Sparkles size={13} /> Your conversations, distilled</Chip>
-      <h1>A year of messages.<br /><em>One beautiful story.</em></h1>
-      <p>Turn your WhatsApp exports into a considered, private recap of the people, rhythms and moments that shaped your year.</p>
+      <h1>Your year.<br /><em>In good company.</em></h1>
+      <p>The people you talked to. The hours you kept. Explore a year of conversations, with everything kept on your device.</p>
       <div className="trust-list"><span><Check size={14} /> No account</span><span><Check size={14} /> Nothing uploaded</span><span><Check size={14} /> Nothing stored</span></div>
     </section>
     <Card className={`import-card ${isDragging ? "is-dragging" : ""}`} variant="tertiary"><Card.Content onDragOver={(event) => { event.preventDefault(); onDragChange(true); }} onDragLeave={() => onDragChange(false)} onDrop={onDrop}>
